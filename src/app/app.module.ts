@@ -11,13 +11,17 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { SalesBuscaCepComponent } from './shared/sales-busca-cep/sales-busca-cep.component';
+import { ProdutoComponent } from './produto/produto.component';
 import { LayoutComponent } from './layout/layout.component';
+import { VendaComponent } from './venda/venda.component';
 
 const COMPONENTES = [
   AppComponent,
   ClienteComponent,
   SalesBuscaCepComponent,
-  LayoutComponent
+  ProdutoComponent,
+  LayoutComponent,
+  VendaComponent
 ];
 
 @NgModule({

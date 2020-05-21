@@ -10,7 +10,7 @@ import { SalesButtonComponent } from './sales-button/sales-button.component';
 import { BuscaCepServicoService } from './sales-busca-cep/servico/busca-cep-servico.service';
 
 const COMPONENTES = [
-  SalesButtonComponent
+  SalesButtonComponent,
 ];
 
 @NgModule({

@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- MENU -->
+        <div class=" menu col-xm-2 col-lg-2">
+            
+            <h3 class="menu__titulo mt-3">Easy Sales</h3>
+           
+            <ul class="nav flex-column mt-4">
+                <li class="nav-item mb-2">
+                    <a class="menu__item" routerLink="">
+                        <i class="fa fa-user ml-3 mr-2"></i>
+                        Cliente
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a class="menu__item" routerLink="">
+                        <i class="fa fa-archive ml-3 mr-2"></i>
+                        Produto
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="menu__item" routerLink="">
+                        <i class="fa fa-shopping-bag ml-3 mr-2"></i>
+                        Venda
+                    </a>    
+                </li>
+            </ul>
+        </div>
+
+        <!-- CONTEUDO PRINCIPAL -->
+        <div class="col-10">
+            <p>conteudo principal</p>
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

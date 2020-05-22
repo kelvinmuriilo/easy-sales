@@ -1,12 +1,27 @@
 <app-layout>
-    <div class="row mt-5">
-        <div class="col-12">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-8 ">
             <div class="card">
                 <div class="card-body">
-                    <div class="col-4">
-                        <sales-busca-cep [valor]="cliente.cep">
-                
-                        </sales-busca-cep>
+                    <div class="row">
+                        <div class="col-12">
+                            <sales-input-text
+                                titulo="Nome"
+                                tipo="text"
+                                [valorInicial]="cliente.nome"
+                                (valorRetorno)="cliente.nome=$event"
+                            >
+                            </sales-input-text>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <sales-button
+                            classeHabilitado="btn btn-primary"
+                            nome="Pesquisar"
+                            classeIcone="fa fa-search"
+                            >
+                            </sales-button>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

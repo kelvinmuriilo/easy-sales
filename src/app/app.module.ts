@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 //Modulos
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -14,6 +13,8 @@ import { SalesBuscaCepComponent } from './shared/sales-busca-cep/sales-busca-cep
 import { ProdutoComponent } from './produto/produto.component';
 import { LayoutComponent } from './layout/layout.component';
 import { VendaComponent } from './venda/venda.component';
+import { SalesInputTextComponent } from './shared/sales-input-text/sales-input-text.component';
+import { SalesButtonComponent } from './shared/sales-button/sales-button.component';
 
 const COMPONENTES = [
   AppComponent,
@@ -21,7 +22,9 @@ const COMPONENTES = [
   SalesBuscaCepComponent,
   ProdutoComponent,
   LayoutComponent,
-  VendaComponent
+  VendaComponent,
+  SalesInputTextComponent,
+  SalesButtonComponent
 ];
 
 @NgModule({
@@ -29,7 +32,6 @@ const COMPONENTES = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
     HttpClientModule,
     FormsModule
   ],

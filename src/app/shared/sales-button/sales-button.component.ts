@@ -6,10 +6,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./sales-button.component.scss']
 })
 export class SalesButtonComponent implements OnInit {
-  @Input() classeHabilitado: string;
-  @Input() classeDesabilitado: string = 'btn-secondary'
-  @Input() nome: string;
-  @Input() liberado: boolean = true;
+  @Input('classeHabilitado') classeHabilitado: string;
+  @Input('classeDesabilitado') classeDesabilitado: string = 'btn-secondary'
+  @Input('nome') nome: string;
+  @Input('liberado') liberado: boolean = true;
+  @Input('classeIcone') classeIcone: string;
 
   @Output() enventoClick: EventEmitter<any> = new EventEmitter();
   constructor() { }

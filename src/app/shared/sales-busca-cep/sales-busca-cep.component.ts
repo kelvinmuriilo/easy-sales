@@ -32,7 +32,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
     @Input valorRetornoCep - Evento que emite o valor do CEP para ser utilizado no formulário.
     @Input valorRetornoLogradouro - Evento que emite o valor do Logradouro para ser utilizado no formulário.
     @Input valorRetornoCidade - Evento que emite o valor da Cidade pra ser utilizado no formulário.
-    @Inoput valorRetornoUf - Evento que emite o vaor da UF para ser utilizado no formulário.
+    @Input valorRetornoUf - Evento que emite o vaor da UF para ser utilizado no formulário.
  */
 
 export class SalesBuscaCepComponent implements OnInit {
@@ -60,7 +60,7 @@ export class SalesBuscaCepComponent implements OnInit {
       this.buscaCepServico.consultarCep(this.valor).subscribe(
         data => {
           this.cep = data;
-          this.retorarCep();
+          this.retornarCep();
           this.retornarCidade();
           this.retornarLogradouro();
           this.retornarUf();
@@ -74,7 +74,7 @@ export class SalesBuscaCepComponent implements OnInit {
     this.valor = valor
   }
 
-  retorarCep(){
+  retornarCep(){
     this.valorRetornoCep.emit(this.cep.cep);
     this.valor = this.cep.cep;
   }

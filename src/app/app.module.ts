@@ -21,7 +21,7 @@ import { SalesBuscaCepComponent } from './shared/sales-busca-cep/sales-busca-cep
 import { ProdutoComponent } from './produto/produto.component';
 import { LayoutComponent } from './layout/layout.component';
 import { VendaComponent } from './venda/venda.component';
-import { SalesInputTextComponent } from './shared/sales-input-text/sales-input-text.component';
+import { SalesInputComponent } from './shared/sales-input/sales-input.component';
 import { SalesButtonComponent } from './shared/sales-button/sales-button.component';
 import { ClienteManterComponent } from './cliente/cliente-manter/cliente-manter.component';
 
@@ -32,7 +32,7 @@ const COMPONENTES = [
   ProdutoComponent,
   LayoutComponent,
   VendaComponent,
-  SalesInputTextComponent,
+  SalesInputComponent,
   SalesButtonComponent,
   ClienteManterComponent
 ];

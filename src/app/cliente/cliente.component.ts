@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 //Modelos
 import { Cliente } from './servico/cliente';
+
+//Servicos
 import { ClienteServicoService } from './servico/cliente-servico.service';
 
 //Terceiros
@@ -27,6 +29,10 @@ export class ClienteComponent implements OnInit {
     
   }
 
+  mostrarTabelaCliente(): boolean{
+    return this.listaClientes.length > 0;
+  }
+
   pesquisarCliente(){
     this.ngxSpinnerService.show();
     this.clienteServicoService.consultar(this.cliente.nome).subscribe(
@@ -41,8 +47,19 @@ export class ClienteComponent implements OnInit {
     this.router.navigate(['cliente/adicionar']);
   }
 
-  mostrarTabelaCliente(): boolean{
-    return this.listaClientes.length > 0;
+  alterarCliente(cliente: Cliente){
+    console.log(cliente)
+    this.router.navigate([`/cliente/alterar/${cliente.nome}`])
+  }
+
+  excluirCliente(cliente: Cliente){
+    this.ngxSpinnerService.show();
+    this.clienteServicoService.remover(cliente).subscribe(
+      data => {
+        alert(data['mensagem']);
+        this.ngxSpinnerService.hide();
+      }
+    );
   }
 
 }

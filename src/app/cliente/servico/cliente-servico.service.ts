@@ -21,4 +21,12 @@ export class ClienteServicoService {
   incluir(cliente: Cliente):Observable<Cliente>{
     return this.httpClient.post<Cliente>(`https://cors-anywhere.herokuapp.com/https://stormy-badlands-29216.herokuapp.com/api/cliente/incluir`, cliente);
   }
+
+  alterar(cliente: Cliente):Observable<Cliente>{
+    return this.httpClient.patch<Cliente>(`https://cors-anywhere.herokuapp.com/https://stormy-badlands-29216.herokuapp.com/api/cliente/alterarparcial`, cliente);
+  }
+
+  remover(cliente: Cliente): Observable<Cliente>{
+    return this.httpClient.post<Cliente>(`https://cors-anywhere.herokuapp.com/https://stormy-badlands-29216.herokuapp.com/api/cliente/remover`, cliente);
+  }
 }

@@ -1,10 +1,11 @@
 <app-layout>
-    <div class="row mt-5 justify-content-center animate__animated animate__fadeIn">
+    <div class="row mt-5 justify-content-center">
         <div class="col-8">
             <h2 class="display-4">Cliente</h2>
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center 
+                animate__animated animate__fadeIn">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
                     <sales-button
                         nome="Adicionar"
@@ -17,12 +18,12 @@
 
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4
                              d-flex align-items-center">
-                    <sales-input-text
+                    <sales-input
                         placeholder="Insira o nome do cliente"
                         [valorInicial]="cliente.nome"
                         (valorRetorno)="cliente.nome=$event"
                     >
-                    </sales-input-text>
+                    </sales-input>
                     <sales-button
                         class="mt-4"
                         classeIcone="fa fa-search"
@@ -61,7 +62,7 @@
                                 <sales-button
                                     classeIcone="fa fa-edit"
                                     classeHabilitado="btn btn-outline-secondary"
-                                    (enventoClick)="pesquisarCliente()"
+                                    (enventoClick)="alterarCliente(cliente)"
                                 >
                                 </sales-button>
                             </td>
@@ -69,7 +70,7 @@
                                 <sales-button
                                     classeIcone="fa fa-trash"
                                     classeHabilitado="btn btn-outline-danger"
-                                    (enventoClick)="pesquisarCliente()"
+                                    (enventoClick)="excluirCliente(cliente)"
                                 >
                                 </sales-button>
                             </td>

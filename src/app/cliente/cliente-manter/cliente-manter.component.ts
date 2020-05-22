@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 //Modelo
 import { Cliente } from '../servico/cliente';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 //Servico
 import { ClienteServicoService } from '../servico/cliente-servico.service';
@@ -16,15 +16,19 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./cliente-manter.component.scss']
 })
 export class ClienteManterComponent implements OnInit {
+  operacao: string = "Cadastrar";
   cliente: Cliente = new Cliente();
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private clienteServicoService: ClienteServicoService,
     private ngxSpinnerService: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
+    let nomeCliente: string = this.activatedRoute.snapshot.params.nome;
+    this.selecionarOperacao(nomeCliente);
   }
 
   incluirCliente(){
@@ -40,6 +44,34 @@ export class ClienteManterComponent implements OnInit {
 
   voltar(){
     this.router.navigate(['/']);
+  }
+
+  alterarCliente(){
+    this.ngxSpinnerService.show();
+    this.clienteServicoService.alterar(this.cliente).subscribe(
+      data => {
+        alert(data['mensagem']);
+        this.ngxSpinnerService.hide();
+        this.voltar();
+      }
+    )
+  }
+
+  alterarBotaoCadastrarSalvar(): boolean{
+    return this.operacao === 'Cadastrar';
+  }
+
+  private selecionarOperacao(nomeCliente: string){
+    if(nomeCliente != null){
+      this.operacao = 'Alterar';
+      this.ngxSpinnerService.show();
+      this.clienteServicoService.consultar(nomeCliente).subscribe(
+        data => {
+          this.cliente = (<Cliente>data[0]);
+          this.ngxSpinnerService.hide();
+        }
+      );
+    }
   }
 
 }

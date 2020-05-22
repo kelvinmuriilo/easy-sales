@@ -20,6 +20,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'cliente/alterar/:nome',
+    component: ClienteManterComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'produto',
     component: ProdutoComponent,
     pathMatch: 'full' 

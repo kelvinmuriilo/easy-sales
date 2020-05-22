@@ -1,5 +1,5 @@
 <app-layout>
-    <div class="row mt-5 justify-content-center">
+    <div class="row mt-5 justify-content-center animate__animated animate__fadeIn">
         <div class="col-8">
             <h2 class="display-4">Cliente</h2>
         </div>
@@ -18,9 +18,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4
                              d-flex align-items-center">
                     <sales-input-text
-                        titulo=""
-                        placeholder="Buscar cliente"
-                        tipo="text"
+                        placeholder="Insira o nome do cliente"
                         [valorInicial]="cliente.nome"
                         (valorRetorno)="cliente.nome=$event"
                     >
@@ -61,7 +59,6 @@
                             <td>{{ cliente.uf }}</td>
                             <td class="px-0"> 
                                 <sales-button
-                                    nome=""
                                     classeIcone="fa fa-edit"
                                     classeHabilitado="btn btn-outline-secondary"
                                     (enventoClick)="pesquisarCliente()"
@@ -70,7 +67,6 @@
                             </td>
                             <td class="px-0"> 
                                 <sales-button
-                                    nome=""
                                     classeIcone="fa fa-trash"
                                     classeHabilitado="btn btn-outline-danger"
                                     (enventoClick)="pesquisarCliente()"

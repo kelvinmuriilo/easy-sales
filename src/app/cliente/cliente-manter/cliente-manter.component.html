@@ -1,1 +1,97 @@
-<p>cliente-manter works!</p>
+<app-layout>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-8">
+            <h2 class="display-4">Cliente</h2>
+        </div>
+        <div class="col-8 mt-5">
+            <div class="card animate__animated animate__fadeInDown">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <sales-input-text
+                                titulo="Nome:"
+                                placeholder="Insira o nome do cliente"
+                                [valorInicial]="cliente.nome"
+                                (valorRetorno)="cliente.nome=$event"
+                            >
+                            </sales-input-text>
+                        </div>
+
+                        <div class="col-3 mt-3">
+                            <sales-input-text
+                                titulo="Telefone:"
+                                placeholder="(xx) xxxxx-xxxx"
+                                [valorInicial]="cliente.telefone"
+                                (valorRetorno)="cliente.telefone=$event"
+                            >
+                        </sales-input-text>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-4">
+                            <sales-busca-cep
+                                [valor]="cliente.cep"
+                                (valorRetornoCep)="cliente.cep=$event"
+                                (valorRetornoLogradouro)="cliente.endereco=$event"
+                                (valorRetornoCidade)="cliente.cidade=$event"
+                                (valorRetornoUf)="cliente.uf=$event"
+                            >
+                            </sales-busca-cep>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mt-2">
+                            <sales-input-text
+                                titulo="Endereço:"
+                                placeholder="Insira o endereço"
+                                [valorInicial]="cliente.endereco"
+                                (valorRetorno)="cliente.endereco=$event"
+                            >
+                            </sales-input-text>
+                        </div>
+
+                        <div class="col-6 mt-2">
+                            <sales-input-text
+                                titulo="Cidade:"
+                                placeholder="Insira a cidade"
+                                [valorInicial]="cliente.cidade"
+                                (valorRetorno)="cliente.cidade=$event"
+                            >
+                            </sales-input-text>
+                        </div>
+
+                        <div class="col-6 mt-2">
+                            <sales-input-text
+                                titulo="UF:"
+                                placeholder="Insira a UF"
+                                [valorInicial]="cliente.uf"
+                                (valorRetorno)="cliente.uf=$event"
+                            >
+                            </sales-input-text>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <sales-button
+                                class="mr-2"
+                                nome="Cadastrar"
+                                classeHabilitado="btn btn-primary"
+                                (enventoClick)="incluirCliente()"
+                            >
+                            </sales-button>
+
+                            <sales-button
+                                nome="Voltar"
+                                classeHabilitado="btn btn-primary"
+                                (enventoClick)="voltar()"
+                            >
+                            </sales-button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-layout>

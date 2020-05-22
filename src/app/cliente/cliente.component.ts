@@ -33,7 +33,6 @@ export class ClienteComponent implements OnInit {
       data => {
         this.listaClientes = data;
         this.ngxSpinnerService.hide();
-        console.log(this.listaClientes);
       }
     );
   }

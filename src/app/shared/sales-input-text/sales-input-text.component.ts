@@ -20,9 +20,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
  * 
  * @Input titulo - O titulo dado ao label do input
- * @Input tipo - O tipo do input. Por padrõa é o text, mas pode ser number, date e demoais suportados pelo HTML.
+ * @Input tipo - O tipo do input. Por padrão é o text, mas pode ser number, date e demais suportados pelo HTML.
  * @Input placeholder - Placeholder do input.
- * @Input valorInicial- É o valor inicial do input. Caso o objeto já possua valor, o mesmo será inserido no input.
+ * @Input valorInicial- É o valor inicial do input. 
+ *    Caso o atributo passado já possua valor, o mesmo será inserido no value do input.
+ *    O tipo é any pois podem ser passados valores de qualquer tipo, permitindo a sua utilização em qualquer cenário.
  * @Output valorRetorno - Evento que emite o valor do campo toda vez que o mesmo é alterado.
  */
 export class SalesInputTextComponent implements OnInit {
@@ -32,7 +34,7 @@ export class SalesInputTextComponent implements OnInit {
   @Input('placeholder') placeholder: string = '';
   @Input('valorInicial') valorInicial: any;
 
-  @Output('valorRetorno') valorRetorno: EventEmitter<string> = new EventEmitter();
+  @Output('valorRetorno') valorRetorno: EventEmitter<any> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {

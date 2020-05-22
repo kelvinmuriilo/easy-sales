@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+//Modelo
 import { Cep } from './cep';
 
 @Injectable({
@@ -13,7 +14,7 @@ export class BuscaCepServicoService {
     private httpClient: HttpClient
   ) { }
 
-  consultarCep(cep: number): Observable<Cep>{
+  consultarCep(cep: string): Observable<Cep>{
     return this.httpClient.get<Cep>(`https://viacep.com.br/ws/${cep}/json/`);
   }
 }

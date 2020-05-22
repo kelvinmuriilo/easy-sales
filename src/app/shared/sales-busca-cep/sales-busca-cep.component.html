@@ -1,8 +1,15 @@
-<div class="form-group">
+<label>CEP: </label>
+<div class="form- d-flex">
     <input 
         class="form-control" 
-        type="number" 
+        type="text"
+        placeholder="Insira o CEP e clique na lupa" 
         [(ngModel)]="valor" 
-        (input)="consultarCep($event.target.value)" 
+        (input)="guardarValorCep($event.target.value)"
+        mask="00000-000" 
     />
+
+    <button class="btn btn-primary" (click)="consultarCep()">
+        <i class="fa fa-search"></i>
+    </button>
 </div>

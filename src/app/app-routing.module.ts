@@ -5,12 +5,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { VendaComponent } from './venda/venda.component';
+import { ClienteManterComponent } from './cliente/cliente-manter/cliente-manter.component';
 
 
 const routes: Routes = [
   {
-    path: 'cliente',
+    path: '',
     component: ClienteComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'cliente/adicionar',
+    component: ClienteManterComponent,
     pathMatch: 'full'
   },
   {

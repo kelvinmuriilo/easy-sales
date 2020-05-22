@@ -1,45 +1,86 @@
 <app-layout>
     <div class="row mt-5 justify-content-center">
-        <div class="col-8 ">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <sales-input-text
-                                titulo="Nome"
-                                tipo="text"
-                                [valorInicial]="cliente.nome"
-                                (valorRetorno)="cliente.nome=$event"
-                            >
-                            </sales-input-text>
-                        </div>
-                        <div class="col-12 mt-3">
-                            <sales-button
-                            classeHabilitado="btn btn-primary"
-                            nome="Pesquisar"
-                            classeIcone="fa fa-search"
-                            >
-                            </sales-button>
-                        </div>
-                        
-                    </div>
+        <div class="col-8">
+            <h2 class="display-4">Cliente</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                    <sales-button
+                        nome="Adicionar"
+                        classeIcone="fa fa-user-plus"
+                        classeHabilitado="btn btn-primary"
+                        (enventoClick)="adicionarCliente()"
+                    >
+                    </sales-button>
                 </div>
-            </div>
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4
+                             d-flex align-items-center">
+                    <sales-input-text
+                        titulo=""
+                        placeholder="Buscar cliente"
+                        tipo="text"
+                        [valorInicial]="cliente.nome"
+                        (valorRetorno)="cliente.nome=$event"
+                    >
+                    </sales-input-text>
+                    <sales-button
+                        class="mt-4"
+                        classeIcone="fa fa-search"
+                        classeHabilitado="btn btn-primary"
+                        (enventoClick)="pesquisarCliente()"
+                    >
+                    </sales-button>
+                </div>
+            </div>    
+        </div>
+      
+        <div class="col-8 mt-5">
+           <ng-container *ngIf="mostrarTabelaCliente()">
+                <table class="table table-striped animate__animated animate__fadeIn">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Cidade</th>
+                            <th>CEP</th>
+                            <th>UF</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cliente of listaClientes">
+                            <td>{{ cliente.codigo }}</td>
+                            <td>{{ cliente.nome }}</td>
+                            <td>{{ cliente.endereco }}</td>
+                            <td>{{ cliente.cidade }}</td>
+                            <td>{{ cliente.cep }}</td>
+                            <td>{{ cliente.uf }}</td>
+                            <td class="px-0"> 
+                                <sales-button
+                                    nome=""
+                                    classeIcone="fa fa-edit"
+                                    classeHabilitado="btn btn-outline-secondary"
+                                    (enventoClick)="pesquisarCliente()"
+                                >
+                                </sales-button>
+                            </td>
+                            <td class="px-0"> 
+                                <sales-button
+                                    nome=""
+                                    classeIcone="fa fa-trash"
+                                    classeHabilitado="btn btn-outline-danger"
+                                    (enventoClick)="pesquisarCliente()"
+                                >
+                                </sales-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-container> 
         </div>
     </div>
 </app-layout>
-    
-   
-
- 
-
-<!--  <form #cadastro="ngForm" (ngSubmit)="enviarDados(cadastro)">
-     <label for="nome">Nome</label>
-
-     <input type="text" id="nome" name="nome" [(ngModel)]="cliente.nome" #nome="ngModel" required />
-     <label for="telefone">Telefone</label>
-     <input type="text" id="telefone" name="telefone" [(ngModel)]="cliente.telefone" #nome="ngModel" required />
-
-
-     <button type="submit">Enviar</button>
- </form> -->

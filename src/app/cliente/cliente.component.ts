@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 //Modelos
 import { Cliente } from './servico/cliente';
+import { ClienteServicoService } from './servico/cliente-servico.service';
+
+//Terceiros
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-cliente',
@@ -10,20 +15,35 @@ import { Cliente } from './servico/cliente';
 })
 export class ClienteComponent implements OnInit {
   cliente: Cliente = new Cliente();
+  listaClientes: Cliente[] = [];
 
-  constructor() { }
+  constructor(
+    private clienteServicoService: ClienteServicoService,
+    private ngxSpinnerService: NgxSpinnerService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     
   }
 
-  liberarBotao(): boolean{
-    return true;
+  pesquisarCliente(){
+    this.ngxSpinnerService.show();
+    this.clienteServicoService.consultar(this.cliente.nome).subscribe(
+      data => {
+        this.listaClientes = data;
+        this.ngxSpinnerService.hide();
+        console.log(this.listaClientes);
+      }
+    );
   }
 
-  enviarDados(cadastro){
-    console.log(cadastro.form)
-    alert(this.cliente.nome);
+  adicionarCliente(){
+    this.router.navigate(['cliente/adicionar']);
+  }
+
+  mostrarTabelaCliente(): boolean{
+    return this.listaClientes.length > 0;
   }
 
 }

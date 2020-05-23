@@ -4,9 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 //Modulos
 import { AppRoutingModule } from './app-routing.module';
+import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 
 //Servicos
 import { ClienteServicoService } from './cliente/servico/cliente-servico.service';
@@ -24,6 +24,8 @@ import { VendaComponent } from './venda/venda.component';
 import { SalesInputComponent } from './shared/sales-input/sales-input.component';
 import { SalesButtonComponent } from './shared/sales-button/sales-button.component';
 import { ClienteManterComponent } from './cliente/cliente-manter/cliente-manter.component';
+import { ModalMensagemComponent } from './shared/modal/modal-mensagem/modal-mensagem.component';
+import { ModalConfirmacaoComponent } from './shared/modal/modal-confirmacao/modal-confirmacao.component';
 
 const COMPONENTES = [
   AppComponent,
@@ -34,21 +36,30 @@ const COMPONENTES = [
   VendaComponent,
   SalesInputComponent,
   SalesButtonComponent,
-  ClienteManterComponent
+  ClienteManterComponent,
+  ModalMensagemComponent,
+  ModalConfirmacaoComponent
 ];
 
 @NgModule({
   declarations: COMPONENTES,
+  exports: COMPONENTES,
+  entryComponents: [
+    ModalMensagemComponent,
+    ModalConfirmacaoComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ModalModule.forRoot()
   ],
   providers: [
-    ClienteServicoService
+    ClienteServicoService,
+    BsModalRef
   ],
   bootstrap: [AppComponent]
 })

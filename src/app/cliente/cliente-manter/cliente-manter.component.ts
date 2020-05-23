@@ -9,6 +9,7 @@ import { ClienteServicoService } from '../servico/cliente-servico.service';
 
 //Terceiro
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ModalServicoService } from 'src/app/shared/modal/modal-servico.service';
 
 @Component({
   selector: 'app-cliente-manter',
@@ -23,7 +24,8 @@ export class ClienteManterComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private clienteServicoService: ClienteServicoService,
-    private ngxSpinnerService: NgxSpinnerService
+    private ngxSpinnerService: NgxSpinnerService,
+    private modalServicoService: ModalServicoService
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class ClienteManterComponent implements OnInit {
     this.clienteServicoService.incluir(this.cliente).subscribe(
       data => {
         this.ngxSpinnerService.hide();
-        alert(data['mensagem']);
+        this.modalServicoService.exibirSucesso(data['mensagem']);
         this.cliente = new Cliente();
       }
     );
@@ -50,7 +52,7 @@ export class ClienteManterComponent implements OnInit {
     this.ngxSpinnerService.show();
     this.clienteServicoService.alterar(this.cliente).subscribe(
       data => {
-        alert(data['mensagem']);
+        this.modalServicoService.exibirSucesso(data['mensagem']);
         this.ngxSpinnerService.hide();
         this.voltar();
       }

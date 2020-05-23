@@ -9,6 +9,8 @@ import { ClienteServicoService } from './servico/cliente-servico.service';
 
 //Terceiros
 import { NgxSpinnerService } from "ngx-spinner";
+import { ModalServicoService } from '../shared/modal/modal-servico.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cliente',
@@ -22,7 +24,8 @@ export class ClienteComponent implements OnInit {
   constructor(
     private clienteServicoService: ClienteServicoService,
     private ngxSpinnerService: NgxSpinnerService,
-    private router: Router
+    private router: Router,
+    private modalServicoService: ModalServicoService,
   ) { }
 
   ngOnInit(): void {
@@ -56,10 +59,9 @@ export class ClienteComponent implements OnInit {
     this.ngxSpinnerService.show();
     this.clienteServicoService.remover(cliente).subscribe(
       data => {
-        alert(data['mensagem']);
+        this.modalServicoService.exibirSucesso(data['mensagem']);
         this.ngxSpinnerService.hide();
       }
     );
   }
-
 }

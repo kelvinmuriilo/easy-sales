@@ -4,8 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt';
-registerLocaleData(localePt);
 
 //Modulos
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +29,8 @@ import { ClienteManterComponent } from './cliente/cliente-manter/cliente-manter.
 import { ModalMensagemComponent } from './shared/modal/modal-mensagem/modal-mensagem.component';
 import { ModalConfirmacaoComponent } from './shared/modal/modal-confirmacao/modal-confirmacao.component';
 import { ProdutoManterComponent } from './produto/produto-manter/produto-manter.component';
+import { VendaManterComponent } from './venda/venda-manter/venda-manter.component';
+import { VendaDetalhesComponent } from './venda/venda-detalhes/venda-detalhes.component';
 
 const COMPONENTES = [
   AppComponent,
@@ -44,7 +44,9 @@ const COMPONENTES = [
   ClienteManterComponent,
   ModalMensagemComponent,
   ModalConfirmacaoComponent,
-  ProdutoManterComponent
+  ProdutoManterComponent,
+  VendaManterComponent,
+  VendaDetalhesComponent
 ];
 
 @NgModule({

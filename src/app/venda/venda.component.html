@@ -1,7 +1,77 @@
 <app-layout>
-    <div class="row">
-        <div class="col-12">
-            <h2>Venda works!</h2>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-8">
+            <h2 class="display-4">Venda</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <div class="row justify-content-center align-items-center 
+                animate__animated animate__fadeIn">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                    <sales-button
+                        nome="Adicionar"
+                        classeIcone="fa fa-plus"
+                        classeHabilitado="btn btn-primary"
+                        (enventoClick)="incluirVenda()"
+                    >
+                    </sales-button>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4
+                             d-flex align-items-center">
+                    <sales-input
+                        placeholder="Insira o código da venda"
+                        [valorInicial]="venda.codigo"
+                        (valorRetorno)="venda.codigo=$event"
+                    >
+                    </sales-input>
+                    <sales-button
+                        class="mt-4"
+                        classeIcone="fa fa-search"
+                        classeHabilitado="btn btn-primary"
+                        (enventoClick)="pesquisarVenda()"
+                    >
+                    </sales-button>
+                </div>
+            </div>    
+        </div>
+      
+        <div class="col-8 mt-5">
+           <ng-container *ngIf="mostrarTabelaVendas()">
+                <table class="table table-striped animate__animated animate__fadeIn">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Cliente</th>
+                            <th>Data</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let venda of listaVendas">
+                            <td>{{ venda.codigo }}</td>
+                            <td>{{ venda.cliente.nome }}</td>
+                            <td>{{ venda.data | date: 'dd/MM/yyyy' }}</td>
+                            <td class="px-0">
+                                <sales-button
+                                nome="Detalhes"
+                                classeHabilitado="btn btn-outline-info"
+                                (enventoClick)="detalhesVenda(venda.codigo)"
+                                >
+                                </sales-button>   
+                            </td>                        
+                            <td class="px-0"> 
+                                <sales-button
+                                    classeIcone="fa fa-trash"
+                                    classeHabilitado="btn btn-outline-danger"
+                                    (enventoClick)="removerVenda(venda)"
+                                >
+                                </sales-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-container> 
         </div>
     </div>
 </app-layout>

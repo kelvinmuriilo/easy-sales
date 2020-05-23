@@ -7,6 +7,8 @@ import { ProdutoComponent } from './produto/produto.component';
 import { VendaComponent } from './venda/venda.component';
 import { ClienteManterComponent } from './cliente/cliente-manter/cliente-manter.component';
 import { ProdutoManterComponent } from './produto/produto-manter/produto-manter.component';
+import { VendaManterComponent } from './venda/venda-manter/venda-manter.component';
+import { VendaDetalhesComponent } from './venda/venda-detalhes/venda-detalhes.component';
 
 
 const routes: Routes = [
@@ -44,7 +46,18 @@ const routes: Routes = [
     path:'venda',
     component: VendaComponent,
     pathMatch: 'full'
-  }
+  },
+  {
+    path:'venda/incluir',
+    component: VendaManterComponent,
+    pathMatch: 'full'
+  },
+  {
+    path:'venda/detalhes/:codigo',
+    component: VendaDetalhesComponent,
+    pathMatch: 'full'
+  },
+  
 ];
 
 @NgModule({

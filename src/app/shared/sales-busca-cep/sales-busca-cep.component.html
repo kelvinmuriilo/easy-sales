@@ -6,7 +6,7 @@
         placeholder="Insira o CEP e clique na lupa" 
         [(ngModel)]="valor" 
         (input)="guardarValorCep($event.target.value)"
-        mask="00000-000" 
+        mask="99999-999" 
     />
 
     <button class="btn btn-primary" (click)="consultarCep()">

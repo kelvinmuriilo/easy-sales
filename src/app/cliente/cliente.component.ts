@@ -46,8 +46,8 @@ export class ClienteComponent implements OnInit {
     );
   }
 
-  adicionarCliente(){
-    this.router.navigate(['cliente/adicionar']);
+  incluirCliente(){
+    this.router.navigate(['cliente/incluir']);
   }
 
   alterarCliente(cliente: Cliente){

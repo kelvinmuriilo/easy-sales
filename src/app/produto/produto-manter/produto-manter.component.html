@@ -1,0 +1,86 @@
+<app-layout>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-8">
+            <h2 class="display-4">{{ operacao }} Produto</h2>
+        </div>
+        <div class="col-6 mt-5">
+            <div class="card animate__animated animate__fadeInDown">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <sales-input
+                                titulo="Nome:"
+                                placeholder="Insira o nome do produto"
+                                [valorInicial]="produto.nome"
+                                (valorRetorno)="produto.nome=$event"
+                            >
+                            </sales-input>
+                        </div>
+
+                        <div class="col-8 mt-3">
+                            <sales-input
+                                titulo="Descrição:"
+                                placeholder="Descrição"
+                                [valorInicial]="produto.descricao"
+                                (valorRetorno)="produto.descricao=$event"
+                            >
+                            </sales-input>
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-6 mt-3">
+                            <sales-input
+                                titulo="Observação:"
+                                placeholder="Observação"
+                                [valorInicial]="produto.observacao"
+                                (valorRetorno)="produto.observacao=$event"
+                            >
+                            </sales-input>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4 mt-3">
+                            <sales-input
+                                titulo="Valor:"
+                                placeholder="Valor"
+                                [valorInicial]="produto.valor"
+                                (valorRetorno)="produto.valor=$event"
+                            >
+                            </sales-input>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <sales-button 
+                                *ngIf="alterarBotaoCadastrarSalvar()"
+                                class="mr-2"
+                                nome="Cadastrar"
+                                classeHabilitado="btn btn-outline-primary"
+                                (enventoClick)="incluirProduto()"
+                            >
+                            </sales-button>
+                            <sales-button 
+                                *ngIf="!alterarBotaoCadastrarSalvar()"
+                                class="mr-2"
+                                nome="Salvar"
+                                classeHabilitado="btn btn-outline-primary"
+                                (enventoClick)="alterarProduto()"
+                            >
+                            </sales-button>
+
+                            <sales-button
+                                nome="Voltar"
+                                classeHabilitado="btn btn-outline-primary"
+                                (enventoClick)="voltar()"
+                            >
+                            </sales-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-layout>

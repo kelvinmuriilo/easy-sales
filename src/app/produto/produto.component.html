@@ -1,0 +1,81 @@
+<app-layout>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-8">
+            <h2 class="display-4">Produto</h2>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <div class="row justify-content-center align-items-center 
+                animate__animated animate__fadeIn">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                    <sales-button
+                        nome="Adicionar"
+                        classeIcone="fa fa-plus"
+                        classeHabilitado="btn btn-primary"
+                        (enventoClick)="incluirProduto()"
+                    >
+                    </sales-button>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4
+                             d-flex align-items-center">
+                    <sales-input
+                        placeholder="Insira o nome do cliente"
+                        [valorInicial]="produto.nome"
+                        (valorRetorno)="produto.nome=$event"
+                    >
+                    </sales-input>
+                    <sales-button
+                        class="mt-4"
+                        classeIcone="fa fa-search"
+                        classeHabilitado="btn btn-primary"
+                        (enventoClick)="pesquisarProduto()"
+                    >
+                    </sales-button>
+                </div>
+            </div>    
+        </div>
+      
+        <div class="col-8 mt-5">
+           <ng-container *ngIf="mostrarTabelaProduto()">
+                <table class="table table-striped animate__animated animate__fadeIn">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Observação</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let produto of listaProdutos">
+                            <td>{{ produto.codigo }}</td>
+                            <td>{{ produto.nome }}</td>
+                            <td>{{ produto.descricao }}</td>
+                            <td>{{ produto.valor | currency:'BRL' }}</td>
+                            <td>{{ produto.observacao }}</td>
+                            <td class="px-0"> 
+                                <sales-button
+                                    classeIcone="fa fa-edit"
+                                    classeHabilitado="btn btn-outline-secondary"
+                                    (enventoClick)="alterarProduto(produto)"
+                                >
+                                </sales-button>
+                            </td>
+                            <td class="px-0"> 
+                                <sales-button
+                                    classeIcone="fa fa-trash"
+                                    classeHabilitado="btn btn-outline-danger"
+                                    (enventoClick)="removerProduto(produto)"
+                                >
+                                </sales-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </ng-container> 
+        </div>
+    </div>
+</app-layout>

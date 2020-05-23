@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+registerLocaleData(localePt);
 
 //Modulos
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +16,7 @@ import { ClienteServicoService } from './cliente/servico/cliente-servico.service
 
 //Terceiros
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -26,6 +30,7 @@ import { SalesButtonComponent } from './shared/sales-button/sales-button.compone
 import { ClienteManterComponent } from './cliente/cliente-manter/cliente-manter.component';
 import { ModalMensagemComponent } from './shared/modal/modal-mensagem/modal-mensagem.component';
 import { ModalConfirmacaoComponent } from './shared/modal/modal-confirmacao/modal-confirmacao.component';
+import { ProdutoManterComponent } from './produto/produto-manter/produto-manter.component';
 
 const COMPONENTES = [
   AppComponent,
@@ -38,7 +43,8 @@ const COMPONENTES = [
   SalesButtonComponent,
   ClienteManterComponent,
   ModalMensagemComponent,
-  ModalConfirmacaoComponent
+  ModalConfirmacaoComponent,
+  ProdutoManterComponent
 ];
 
 @NgModule({
@@ -55,7 +61,8 @@ const COMPONENTES = [
     FormsModule,
     NgxSpinnerModule,
     BrowserAnimationsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxMaskModule.forRoot()
   ],
   providers: [
     ClienteServicoService,

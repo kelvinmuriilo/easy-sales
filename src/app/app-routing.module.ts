@@ -6,6 +6,7 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { VendaComponent } from './venda/venda.component';
 import { ClienteManterComponent } from './cliente/cliente-manter/cliente-manter.component';
+import { ProdutoManterComponent } from './produto/produto-manter/produto-manter.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'cliente/adicionar',
+    path: 'cliente/incluir',
     component: ClienteManterComponent,
     pathMatch: 'full'
   },
@@ -27,6 +28,16 @@ const routes: Routes = [
   {
     path: 'produto',
     component: ProdutoComponent,
+    pathMatch: 'full' 
+  },
+  {
+    path: 'produto/incluir',
+    component: ProdutoManterComponent,
+    pathMatch: 'full' 
+  },
+  {
+    path: 'produto/alterar/:nome',
+    component: ProdutoManterComponent,
     pathMatch: 'full' 
   },
   {

@@ -7,6 +7,7 @@ import { Venda } from '../servico/venda';
 //Servicos
 import { VendaServicoService } from '../servico/venda-servico.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-venda-detalhes',

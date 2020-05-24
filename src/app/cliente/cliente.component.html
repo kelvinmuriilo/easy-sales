@@ -1,12 +1,13 @@
 <app-layout>
-    <div class="row mt-5 justify-content-center">
+    <div class="row mt-3 justify-content-center">
         <div class="col-8">
             <h2 class="display-4">Cliente</h2>
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-            <div class="row justify-content-center align-items-center 
+        <div class="col-12 col-lg-8">
+            <div class="row  align-items-center 
                 animate__animated animate__fadeIn">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="col-12 col-lg-6 col-xl-6 
+                    d-flex justify-content-center">
                     <sales-button
                         nome="Adicionar"
                         classeIcone="fa fa-user-plus"
@@ -16,8 +17,8 @@
                     </sales-button>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4
-                             d-flex align-items-center">
+                <div class="col-12 col-lg-6 d-flex 
+                    justify-content-center align-items-center py-0">
                     <sales-input
                         placeholder="Insira o nome do cliente"
                         [valorInicial]="cliente.nome"
@@ -35,9 +36,10 @@
             </div>    
         </div>
       
-        <div class="col-8 mt-5">
+        <div class="col-12 col-lg-8 mt-5">
            <ng-container *ngIf="mostrarTabelaCliente()">
-                <table class="table table-striped animate__animated animate__fadeIn">
+                <table class="table table-striped table-responsive 
+                    animate__animated animate__fadeIn">
                     <thead>
                         <tr>
                             <th>Código</th>

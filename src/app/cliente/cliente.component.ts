@@ -51,7 +51,6 @@ export class ClienteComponent implements OnInit {
   }
 
   alterarCliente(cliente: Cliente){
-    console.log(cliente)
     this.router.navigate([`/cliente/alterar/${cliente.nome}`])
   }
 

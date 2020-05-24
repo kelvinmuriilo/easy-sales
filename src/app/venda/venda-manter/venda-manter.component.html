@@ -3,10 +3,122 @@
         <div class="col-8">
             <h2 class="display-4">Realizar Venda</h2>
         </div>
-        <div class="col-10 mt-5">
+        <div class="col-12 col-lg-7 mt-5">
             <div class="card animate__animated animate__fadeInDown">
                 <div class="card-body">
-                   
+                    <div class="row">
+                        <div class="col-6">
+                            <sales-select
+                                nome="Cliente"
+                                [model]="venda.cliente"
+                                [listaValores]="listaClientes"
+                                (valorSelecionado)="venda.cliente=$event"
+                            >
+                            </sales-select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <sales-input
+                                nome="Data"
+                                tipo="date"
+                                [valorInicial]="venda.data"
+                                (valorRetorno)="venda.data=$event"
+                            >
+                            </sales-input>
+                        </div>
+                    </div>
+                    <div class="col-10 px-0">
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <sales-select
+                                            nome="Produto"
+                                            [model]="itemVenda.produto"
+                                            [listaValores]="listaProdutos"
+                                            (valorSelecionado)="itemVenda.produto=$event"
+                                        >
+                                        </sales-select>
+                                    </div>
+                                    <div class="col-4 flex-column">
+                                        <div class="ml-2">
+                                            <span class="d-block mb-2">Quantidade</span>
+                                            <sales-button
+                                                classeHabilitado="btn btn-light btn-sm"
+                                                classeIcone="fa fa-minus"
+                                                (enventoClick)="diminuirQuantidade()"
+                                            >
+                                            </sales-button>
+                                            <span class="px-3">{{ itemVenda.quantidade }}</span>
+                                            <sales-button
+                                                classeIcone="fa fa-plus"
+                                                classeHabilitado="btn btn-light btn-sm"
+                                                (enventoClick)="aumentarQuantidade()"
+                                            >
+                                            </sales-button>
+                                        </div>      
+                                    </div>
+                                </div>
+                                <div class="row">    
+                                    <div class="col-12 mt-3 ">
+                                        <sales-button
+                                            nome="Adicionar"
+                                            classeIcone= "fa fa-plus"
+                                            classeHabilitado="btn btn-primary"
+                                            [liberado]="liberarBotaoAdicionarItemVenda()"
+                                            (enventoClick)="adicionarItemVenda()"
+                                        >
+                                        </sales-button>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <table class="table animate__animated animate__fadeIn" 
+                                            *ngIf="mostrarTabelaItemVenda()">
+                                            <thead>
+                                                <th>Produto</th>
+                                                <th>Quantidade</th>
+                                                <th>Valor unitário</th>
+                                                <th></th>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let itemVenda of venda.listaVentaItem">
+                                                    <td>{{ itemVenda.produto.nome }}</td>
+                                                    <td>{{ itemVenda.quantidade }}</td>
+                                                    <td>{{ itemVenda.produto.valor | currency:'BRL' }}</td>
+                                                    <td>
+                                                        <i class="fa fa-times" (click)="removerItemVenda(itemVenda)"></i> 
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-right" colspan="2">Valor total</td>
+                                                    <td>{{ calcularValorTotalVenda() | currency: 'BRL' }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <sales-button 
+                                            class="mr-2"
+                                            nome="Cadastrar"
+                                            classeHabilitado="btn btn-outline-primary"
+                                            (enventoClick)="incluirVenda()"
+                                        >
+                                        </sales-button>
+                                        <sales-button 
+                                            class="mr-2"
+                                            nome="Voltar"
+                                            classeHabilitado="btn btn-outline-primary"
+                                            (enventoClick)="voltar()"
+                                        >
+                                        </sales-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

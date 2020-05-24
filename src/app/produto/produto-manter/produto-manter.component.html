@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-8">
                             <sales-input
-                                titulo="Nome:"
+                                nome="Nome:"
                                 placeholder="Insira o nome do produto"
                                 [valorInicial]="produto.nome"
                                 (valorRetorno)="produto.nome=$event"
@@ -19,7 +19,7 @@
 
                         <div class="col-8 mt-3">
                             <sales-input
-                                titulo="Descrição:"
+                                nome="Descrição:"
                                 placeholder="Descrição"
                                 [valorInicial]="produto.descricao"
                                 (valorRetorno)="produto.descricao=$event"
@@ -31,7 +31,7 @@
                     <div class="row">
                         <div class="col-6 mt-3">
                             <sales-input
-                                titulo="Observação:"
+                                nome="Observação:"
                                 placeholder="Observação"
                                 [valorInicial]="produto.observacao"
                                 (valorRetorno)="produto.observacao=$event"
@@ -43,7 +43,7 @@
                     <div class="row">
                         <div class="col-4 mt-3">
                             <sales-input
-                                titulo="Valor:"
+                                nome="Valor:"
                                 placeholder="Valor"
                                 [valorInicial]="produto.valor"
                                 (valorRetorno)="produto.valor=$event"

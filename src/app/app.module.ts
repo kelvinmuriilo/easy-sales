@@ -3,14 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
 
 //Modulos
 import { AppRoutingModule } from './app-routing.module';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
-
-//Servicos
-import { ClienteServicoService } from './cliente/servico/cliente-servico.service';
 
 //Terceiros
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -31,27 +27,28 @@ import { ModalConfirmacaoComponent } from './shared/modal/modal-confirmacao/moda
 import { ProdutoManterComponent } from './produto/produto-manter/produto-manter.component';
 import { VendaManterComponent } from './venda/venda-manter/venda-manter.component';
 import { VendaDetalhesComponent } from './venda/venda-detalhes/venda-detalhes.component';
-
-const COMPONENTES = [
-  AppComponent,
-  ClienteComponent,
-  SalesBuscaCepComponent,
-  ProdutoComponent,
-  LayoutComponent,
-  VendaComponent,
-  SalesInputComponent,
-  SalesButtonComponent,
-  ClienteManterComponent,
-  ModalMensagemComponent,
-  ModalConfirmacaoComponent,
-  ProdutoManterComponent,
-  VendaManterComponent,
-  VendaDetalhesComponent
-];
+import { SalesInputBuscaTempoRealComponent } from './shared/sales-input-busca-tempo-real/sales-input-busca-tempo-real.component';
+import { SalesSelectComponent } from './shared/sales-select/sales-select.component';
 
 @NgModule({
-  declarations: COMPONENTES,
-  exports: COMPONENTES,
+  declarations: [
+    AppComponent,
+    ClienteComponent,
+    SalesBuscaCepComponent,
+    ProdutoComponent,
+    LayoutComponent,
+    VendaComponent,
+    SalesInputComponent,
+    SalesButtonComponent,
+    ClienteManterComponent,
+    ModalMensagemComponent,
+    ModalConfirmacaoComponent,
+    ProdutoManterComponent,
+    VendaManterComponent,
+    VendaDetalhesComponent,
+    SalesInputBuscaTempoRealComponent,
+    SalesSelectComponent
+  ],
   entryComponents: [
     ModalMensagemComponent,
     ModalConfirmacaoComponent
@@ -67,7 +64,6 @@ const COMPONENTES = [
     NgxMaskModule.forRoot()
   ],
   providers: [
-    ClienteServicoService,
     BsModalRef
   ],
   bootstrap: [AppComponent]

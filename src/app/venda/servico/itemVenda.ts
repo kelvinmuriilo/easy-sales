@@ -1,7 +1,7 @@
 import { Produto } from 'src/app/produto/servico/produto';
 
-export class itemVenda{
+export class ItemVenda{
     codigo: string;
     produto: Produto;
-    quantidade: number;
+    quantidade: number = 0;
 }

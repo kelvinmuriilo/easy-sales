@@ -1,0 +1,8 @@
+<label>{{ nome }}</label>
+<select [(ngModel)]="model" (change)="onChange()" class="form-control">
+    <option 
+        *ngFor="let valor of listaValores"
+        [ngValue]="valor">
+        {{ valor.nome }}
+    </option>
+</select> 

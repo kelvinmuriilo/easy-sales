@@ -11,7 +11,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
  * 
  * Exemplo de como utilizar:
  * <sales-input-text
-    titulo="Nome"
+    nome="Nome"
     tipo="text"
     mascara="(00) 0 0000-0000"
     prefixo="R$"    
@@ -21,7 +21,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   </sales-input-text>
 
  * 
- * @Input titulo - O titulo dado ao label do input. Uso opcional, por padrão é ''.
+ * @Input nome - O titulo dado ao label do input. Uso opcional, por padrão é ''.
  * @Input tipo - O tipo do input. Por padrão é o text, mas pode ser number, date e demais suportados pelo HTML.
  * @Input placeholder - Placeholder do input. Uso opcional, por padrão é ''.
  * @Input valorInicial- É o valor inicial do input. Uso obrigatório.
@@ -33,7 +33,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
  */
 export class SalesInputComponent implements OnInit {
 
-  @Input('titulo') titulo: string = '';
+  @Input('nome') nome: string = '';
   @Input('tipo') tipo: string = 'text';
   @Input('placeholder') placeholder: string = '';
   @Input('valorInicial') valorInicial: any;

@@ -23,8 +23,7 @@ export class SalesButtonComponent implements OnInit {
   }
 
   isBloqueado(): boolean{
-    console.log(this.liberado)
-    return this.liberado === true;
+    return this.liberado === false;
   }
 
   alterarEstilo(): string{

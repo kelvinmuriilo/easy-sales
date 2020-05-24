@@ -1,0 +1,14 @@
+<label>{{ titulo }}</label>
+<div >
+    <input
+        [placeholder]="placeholder"
+        [type]="tipo"
+        [(ngModel)]="valorInicial"
+        (input)="consultarValor($event.target.value)"
+    />
+    <div class="area-selecao" *ngIf="mostrarAreaSelecao">
+        <div *ngFor="let opcao of listaOpcoes">
+            <span (click)="selecionarOpcao(opcao)"> {{opcao.nome}} </span>
+        </div>
+    </div>
+</div>

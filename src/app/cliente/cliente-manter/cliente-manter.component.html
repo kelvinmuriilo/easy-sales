@@ -7,9 +7,9 @@
             <div class="card animate__animated animate__fadeInDown">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12 col-lg-8">
+                        <div class="col-12 col-lg-10">
                             <sales-input
-                                titulo="Nome:"
+                                nome="Nome:"
                                 placeholder="Insira o nome do cliente"
                                 [valorInicial]="cliente.nome"
                                 (valorRetorno)="cliente.nome=$event"
@@ -19,7 +19,7 @@
 
                         <div class="col-12 col-sm-6 mt-3">
                             <sales-input
-                                titulo="Telefone:"
+                                nome="Telefone:"
                                 placeholder="Telefone"
                                 mascara="(00) 0 0000-0000"
                                 [valorInicial]="cliente.telefone"
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-7">
                             <sales-busca-cep
                                 [valor]="cliente.cep"
                                 (valorRetornoCep)="cliente.cep=$event"
@@ -43,7 +43,7 @@
                     <div class="row">
                         <div class=" col-12 col-md-10 mt-2">
                             <sales-input
-                                titulo="Endereço:"
+                                nome="Endereço:"
                                 placeholder="Endereço"
                                 [valorInicial]="cliente.endereco"
                                 (valorRetorno)="cliente.endereco=$event"
@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col-12 col-md-6 mt-2">
                             <sales-input
-                                titulo="Cidade:"
+                                nome="Cidade:"
                                 placeholder="Cidade"
                                 [valorInicial]="cliente.cidade"
                                 (valorRetorno)="cliente.cidade=$event"
@@ -64,7 +64,7 @@
                     
                         <div class="col-12 col-sm-6 col-md-3 mt-2">
                             <sales-input
-                                titulo="UF:"
+                                nome="UF:"
                                 placeholder="UF"
                                 [valorInicial]="cliente.uf"
                                 (valorRetorno)="cliente.uf=$event"

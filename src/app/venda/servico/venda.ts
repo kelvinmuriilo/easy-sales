@@ -5,6 +5,6 @@ export class Venda{
     codigo: string = '';
     data: Date;
     cliente: Cliente
-    listaVendaItem: itemVenda[];
+    listaVentaItem: itemVenda[];
 }
 

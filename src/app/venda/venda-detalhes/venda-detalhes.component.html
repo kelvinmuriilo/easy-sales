@@ -1,1 +1,50 @@
-<p>venda-detalhes works!</p>
+<app-layout>
+    <div class="row mt-5 justify-content-center">
+        <div class="col-8">
+            <h2 class="display-4">Detalhes da Venda</h2>
+        </div>
+        <div class="col-7 mt-5 animate__animated animate__fadeInDown">
+            <div class="row flex-column">
+                <span>Código: {{ venda.codigo }}</span>
+                <span class="mt-1">Data: {{ venda.data | date: 'dd/MM/yyyy' }}</span>
+                <span class="mt-1">Cliente: {{ venda.cliente.nome }}</span>
+                <span class="mt-1">Produtos:</span>
+                <div class="col-9">
+                    <table class="table table-borderless mt-2">
+                        <thead>
+                            <th>Código</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Observação</th>
+                            <th>Quantidade</th>
+                            <th>Valor</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let vendaItem of venda.listaVentaItem">
+                                <td class="text-center">{{ vendaItem.codigo }}</td>
+                                <td>{{ vendaItem.produto.nome }}</td>
+                                <td>{{ vendaItem.produto.descricao }}</td>
+                                <td>{{ vendaItem.produto.observacao }}</td>
+                                <td class="text-center">{{ vendaItem.quantidade }}</td>
+                                <td>{{ vendaItem.produto.valor | currency:'BRL'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <span class="mt-3">
+                    Valor total: {{ calcularValorTotalVenda() | currency:'BRL' }}
+                </span>
+
+                <div class="col-9 d-flex  px-0 mt-5">
+                    <sales-button
+                        nome="Voltar"
+                        classeHabilitado="btn btn-outline-primary"
+                        (enventoClick)="voltar()"
+                    >
+                    </sales-button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</app-layout>

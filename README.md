@@ -1,6 +1,6 @@
 # EasySales
 
-Deploy do projeto: <a href="https://easysalesng.netlify.app/ target="_blank">Easy Sales </a>
+Deploy do projeto: [Easy Sales](https://easysalesng.netlify.app)
 
 ## Sobre o projeto
 A aplicação consiste em um CRUD de cliente, produto e venda.

@@ -17,27 +17,28 @@ import { MENSAGEMERROCEP } from '../constantes';
   templateUrl: './sales-busca-cep.component.html',
   styleUrls: ['./sales-busca-cep.component.scss']
 })
-/* Componente utilizado para realizar a busca de um endereço brasileiro a partir de um CEP.
- * O mesmo recebe um valor do tipo string e consome o webservice https://viacep.com.br/
- * a partir do servico BuscaCepServicoService.
- * 
- * Exemplo de como utlizar:
- * <sales-busca-cep
-      [valor]="cliente.cep"
-      (valorRetornoCep)="cliente.cep=$event"
-      (valorRetornoLogradouro)="cliente.endereco=$event"
-      (valorRetornoCidade)="cliente.cidade=$event"
-      (valorRetornoUf)="cliente.uf=$event"
-    >
-    </sales-busca-cep>
-  
-    @Inpunt valor = Representa o valor do input. Caso o atributo passado já tenha valor definido, o mesmo será
-      exibido no input como um valor inicial.
-    @Input valorRetornoCep - Evento que emite o valor do CEP para ser utilizado no formulário.
-    @Input valorRetornoLogradouro - Evento que emite o valor do Logradouro para ser utilizado no formulário.
-    @Input valorRetornoCidade - Evento que emite o valor da Cidade pra ser utilizado no formulário.
-    @Input valorRetornoUf - Evento que emite o vaor da UF para ser utilizado no formulário.
- */
+/* 
+*Componente utilizado para realizar a busca de um endereço brasileiro a partir de um CEP.
+* O mesmo recebe um valor do tipo string e consome o webservice https://viacep.com.br/
+* a partir do servico BuscaCepServicoService.
+* 
+* Exemplo de como utlizar:
+* <sales-busca-cep
+*    [valor]="cliente.cep"
+*    (valorRetornoCep)="cliente.cep=$event"
+*    (valorRetornoLogradouro)="cliente.endereco=$event"
+*    (valorRetornoCidade)="cliente.cidade=$event"
+*    (valorRetornoUf)="cliente.uf=$event"
+*  >
+*  </sales-busca-cep>
+*  
+*  @Inpunt valor = Representa o valor do input. Caso o atributo passado já tenha valor definido, o mesmo será
+*      exibido no input como um valor inicial.
+*  @Input valorRetornoCep - Evento que emite o valor do CEP para ser utilizado no formulário.
+*  @Input valorRetornoLogradouro - Evento que emite o valor do Logradouro para ser utilizado no formulário.
+*  @Input valorRetornoCidade - Evento que emite o valor da Cidade pra ser utilizado no formulário.
+*  @Input valorRetornoUf - Evento que emite o vaor da UF para ser utilizado no formulário.
+*/
 
 export class SalesBuscaCepComponent implements OnInit {
   cep: Cep;
@@ -70,12 +71,10 @@ export class SalesBuscaCepComponent implements OnInit {
           this.retornarLogradouro();
           this.retornarUf();
           this.ngxSpnnerService.hide();
-          this.verificaErroCep(data);
+          this.verificarErroCep(data);
         },
         error =>{
-          this.modalServicoService.exibirErro(
-            MENSAGEMERROCEP
-          );
+          this.modalServicoService.exibirErro(MENSAGEMERROCEP);
           this.ngxSpnnerService.hide();
         }
       );
@@ -103,11 +102,9 @@ export class SalesBuscaCepComponent implements OnInit {
     this.valorRetornoUf.emit(this.cep.uf);
   }
 
-  private verificaErroCep(data){
+  private verificarErroCep(data){
     if(data['erro']){
-      this.modalServicoService.exibirErro(
-        MENSAGEMERROCEP
-      );
+      this.modalServicoService.exibirErro(MENSAGEMERROCEP);
     }
   }
 

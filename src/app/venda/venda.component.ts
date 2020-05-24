@@ -11,6 +11,9 @@ import { ModalServicoService } from '../shared/modal/modal-servico.service';
 //Terceiros
 import { NgxSpinnerService } from 'ngx-spinner';
 
+//Constante
+import { MENSAGEMERROCONEXAO } from '../shared/constantes';
+
 @Component({
   selector: 'app-venda',
   templateUrl: './venda.component.html',
@@ -21,10 +24,10 @@ export class VendaComponent implements OnInit {
   listaVendas: Venda[] = [];
 
   constructor(
-    private vendaServicoService: VendaServicoService,
+    private router: Router,
     private ngxSpinnerService: NgxSpinnerService,
+    private vendaServicoService: VendaServicoService,
     private modalServicoService: ModalServicoService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +39,10 @@ export class VendaComponent implements OnInit {
       data => {
         this.listaVendas = data;
         this.ngxSpinnerService.hide();
+      },
+      error =>{
+        this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirErro(MENSAGEMERROCONEXAO);
       }
     );
   }
@@ -50,6 +57,10 @@ export class VendaComponent implements OnInit {
       data => {
         this.modalServicoService.exibirSucesso(data['mensagem']);
         this.ngxSpinnerService.hide();
+      },
+      error =>{
+        this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirErro(MENSAGEMERROCONEXAO);
       }
     );
   }

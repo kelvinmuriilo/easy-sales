@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 //Modelo
 import { Venda } from '../servico/venda';
@@ -15,7 +16,6 @@ import { ModalServicoService } from 'src/app/shared/modal/modal-servico.service'
 
 //Constante
 import { MENSAGEMERROCONEXAO } from '../../shared/constantes';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-venda-manter',

@@ -6,8 +6,9 @@ import { Venda } from '../servico/venda';
 
 //Servicos
 import { VendaServicoService } from '../servico/venda-servico.service';
+
+//Terceiros
 import { NgxSpinnerService } from 'ngx-spinner';
-import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-venda-detalhes',
@@ -18,10 +19,10 @@ export class VendaDetalhesComponent implements OnInit {
   venda: Venda = new Venda();
 
   constructor(
+    private router: Router,
     private activatedRoute: ActivatedRoute,
-    private vendaServicoService: VendaServicoService,
     private ngxSpinnerService: NgxSpinnerService,
-    private router: Router
+    private vendaServicoService: VendaServicoService
   ) { }
 
   ngOnInit(): void {

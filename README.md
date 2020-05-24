@@ -4,7 +4,7 @@ Deploy do projeto: [Easy Sales](https://easysalesng.netlify.app)
 
 ## Sobre o projeto
 A aplicação consiste em um CRUD de cliente, produto e venda.
-Desenvolvido de forma responsiva, com Bootstrap, podendo adaptar-se a todos os tamanhos de tela.
+Desenvolvido de forma responsiva, com Bootstrap, podendo adaptar-se aos principais tamanhos de tela.
 
 ## Sobre a estrutura
 Cada entidade no sistema tem sua pasta no projeto com seus devidos componentes e sub-componentes.

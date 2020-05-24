@@ -3,11 +3,11 @@
         <div class="col-8">
             <h2 class="display-4">Realizar Venda</h2>
         </div>
-        <div class="col-12 col-lg-7 mt-5">
+        <div class="col-12 col-lg-8 mt-5">
             <div class="card animate__animated animate__fadeInDown">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-lg-6">
                             <sales-select
                                 nome="Cliente"
                                 [model]="venda.cliente"
@@ -16,9 +16,8 @@
                             >
                             </sales-select>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
+                    
+                        <div class="col-12 col-lg-6">
                             <sales-input
                                 nome="Data"
                                 tipo="date"
@@ -28,11 +27,11 @@
                             </sales-input>
                         </div>
                     </div>
-                    <div class="col-10 px-0">
-                        <div class="card mt-4">
+                    <div class="col-12 px-0 mt-3">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-8">
+                                    <div class="col-12 col-lg-6">
                                         <sales-select
                                             nome="Produto"
                                             [model]="itemVenda.produto"
@@ -41,8 +40,8 @@
                                         >
                                         </sales-select>
                                     </div>
-                                    <div class="col-4 flex-column">
-                                        <div class="ml-2">
+                                    <div class="col-12 col-lg-4 flex-column 
+                                        justify-content-center align-items-center">
                                             <span class="d-block mb-2">Quantidade</span>
                                             <sales-button
                                                 classeHabilitado="btn btn-light btn-sm"
@@ -57,11 +56,11 @@
                                                 (enventoClick)="aumentarQuantidade()"
                                             >
                                             </sales-button>
-                                        </div>      
                                     </div>
                                 </div>
-                                <div class="row">    
-                                    <div class="col-12 mt-3 ">
+                                <div class="row mt-3">    
+                                    <div class="col-12 justify-content-center 
+                                        justify-content-start-lg mt-3 ">
                                         <sales-button
                                             nome="Adicionar"
                                             classeIcone= "fa fa-plus"
@@ -71,10 +70,9 @@
                                         >
                                         </sales-button>
                                     </div>
-                                </div>
-                                <div class="row mt-4">
+                                
                                     <div class="col-12">
-                                        <table class="table animate__animated animate__fadeIn" 
+                                        <table class="table table-striped table-reponsive animate__animated animate__fadeIn" 
                                             *ngIf="mostrarTabelaItemVenda()">
                                             <thead>
                                                 <th>Produto</th>
@@ -99,26 +97,29 @@
                                         </table>
                                     </div>
 
-                                    <div class="col-12">
-                                        <sales-button 
-                                            class="mr-2"
-                                            nome="Cadastrar"
-                                            classeHabilitado="btn btn-outline-primary"
-                                            (enventoClick)="incluirVenda()"
-                                        >
-                                        </sales-button>
-                                        <sales-button 
-                                            class="mr-2"
-                                            nome="Voltar"
-                                            classeHabilitado="btn btn-outline-primary"
-                                            (enventoClick)="voltar()"
-                                        >
-                                        </sales-button>
-                                    </div>
+                                   
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
+                    <div class="col-12 d-flex justify-content-center-lg mt-3">
+                        <sales-button 
+                            class="mr-2"
+                            nome="Confirmar"
+                            classeHabilitado="btn btn-outline-primary"
+                            (enventoClick)="incluirVenda()"
+                        >
+                        </sales-button>
+                        <sales-button 
+                            class="mr-2"
+                            nome="Voltar"
+                            classeHabilitado="btn btn-outline-primary"
+                            (enventoClick)="voltar()"
+                        >
+                        </sales-button>
+                    </div>
+
                 </div>
             </div>
         </div>

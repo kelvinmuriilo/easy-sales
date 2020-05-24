@@ -6,10 +6,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 //Servico
 import { ClienteServicoService } from '../servico/cliente-servico.service';
+import { ModalServicoService } from 'src/app/shared/modal/modal-servico.service';
 
 //Terceiro
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ModalServicoService } from 'src/app/shared/modal/modal-servico.service';
+import { MENSAGEMERROCONEXAO } from 'src/app/shared/constantes';
 
 @Component({
   selector: 'app-cliente-manter',
@@ -40,6 +41,10 @@ export class ClienteManterComponent implements OnInit {
         this.ngxSpinnerService.hide();
         this.modalServicoService.exibirSucesso(data['mensagem']);
         this.cliente = new Cliente();
+      },
+      error => {
+        this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirErro(MENSAGEMERROCONEXAO);
       }
     );
   }
@@ -55,6 +60,10 @@ export class ClienteManterComponent implements OnInit {
         this.modalServicoService.exibirSucesso(data['mensagem']);
         this.ngxSpinnerService.hide();
         this.voltar();
+      },
+      error => {
+        this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirErro(MENSAGEMERROCONEXAO);
       }
     )
   }

@@ -6,10 +6,10 @@ import { Cliente } from './servico/cliente';
 
 //Servicos
 import { ClienteServicoService } from './servico/cliente-servico.service';
+import { ModalServicoService } from '../shared/modal/modal-servico.service';
 
 //Terceiros
 import { NgxSpinnerService } from "ngx-spinner";
-import { ModalServicoService } from '../shared/modal/modal-servico.service';
 
 //Constante
 import { MENSAGEMERROCONEXAO } from '../shared/constantes';
@@ -24,18 +24,14 @@ export class ClienteComponent implements OnInit {
   listaClientes: Cliente[] = [];
  
   constructor(
-    private clienteServicoService: ClienteServicoService,
-    private ngxSpinnerService: NgxSpinnerService,
     private router: Router,
+    private ngxSpinnerService: NgxSpinnerService,
     private modalServicoService: ModalServicoService,
+    private clienteServicoService: ClienteServicoService
   ) { }
 
   ngOnInit(): void {
     
-  }
-
-  mostrarTabelaCliente(): boolean{
-    return this.listaClientes.length > 0;
   }
 
   pesquisarCliente(){
@@ -47,9 +43,7 @@ export class ClienteComponent implements OnInit {
       },
       error => {
         this.ngxSpinnerService.hide();
-        this.modalServicoService.exibirErro(
-          MENSAGEMERROCONEXAO
-        );
+        this.modalServicoService.exibirErro(MENSAGEMERROCONEXAO);
       }
     );
   }
@@ -71,10 +65,12 @@ export class ClienteComponent implements OnInit {
       },
       error => {
         this.ngxSpinnerService.hide();
-        this.modalServicoService.exibirErro(
-          MENSAGEMERROCONEXAO
-        );
+        this.modalServicoService.exibirErro(MENSAGEMERROCONEXAO);
       }
     );
+  }
+
+  mostrarTabelaCliente(): boolean{
+    return this.listaClientes.length > 0;
   }
 }

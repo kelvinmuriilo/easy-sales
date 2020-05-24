@@ -6,7 +6,7 @@
         <div class="col-12 col-lg-8">
             <div class="row align-items-center 
                 animate__animated animate__fadeIn">
-                <div class="col-12 col-lg-4  d-flex justify-content-center 
+                <div class="col-12 col-lg-6  d-flex justify-content-center 
                 justify-content-lg-start">
                     <sales-button
                         nome="Adicionar"
@@ -17,7 +17,7 @@
                     </sales-button>
                 </div>
 
-                <div class="col-12 col-lg-8 d-flex 
+                <div class="col-12 col-lg-6 d-flex 
                     justify-content-center align-items-center py-0">
                     <sales-input
                         placeholder="Insira o nome do produto"
@@ -37,47 +37,46 @@
         </div>
       
         <div class="col-12 col-lg-8 mt-5">
-           <ng-container *ngIf="mostrarTabelaProduto()">
-                <table class="table table-striped animate__animated animate__fadeIn
-                    table-responsive ">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nome</th>
-                            <th>Descrição</th>
-                            <th>Valor</th>
-                            <th>Observação</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let produto of listaProdutos">
-                            <td>{{ produto.codigo }}</td>
-                            <td>{{ produto.nome }}</td>
-                            <td>{{ produto.descricao }}</td>
-                            <td>{{ produto.valor | currency:'BRL' }}</td>
-                            <td>{{ produto.observacao }}</td>
-                            <td class="pL-0"> 
-                                <sales-button
-                                    classeIcone="fa fa-edit"
-                                    classeHabilitado="btn btn-outline-secondary"
-                                    (enventoClick)="alterarProduto(produto)"
-                                >
-                                </sales-button>
-                            </td>
-                            <td class="px-0"> 
-                                <sales-button
-                                    classeIcone="fa fa-trash"
-                                    classeHabilitado="btn btn-outline-danger"
-                                    (enventoClick)="removerProduto(produto)"
-                                >
-                                </sales-button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </ng-container> 
+            <table *ngIf="mostrarTabelaProduto()" 
+                class="table table-striped animate__animated animate__fadeIn
+                table-responsive">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Observação</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let produto of listaProdutos">
+                        <td>{{ produto.codigo }}</td>
+                        <td>{{ produto.nome }}</td>
+                        <td>{{ produto.descricao }}</td>
+                        <td>{{ produto.valor | currency:'BRL' }}</td>
+                        <td>{{ produto.observacao }}</td>
+                        <td class="pL-0"> 
+                            <sales-button
+                                classeIcone="fa fa-edit"
+                                classeHabilitado="btn btn-outline-secondary"
+                                (enventoClick)="alterarProduto(produto)"
+                            >
+                            </sales-button>
+                        </td>
+                        <td class="px-0"> 
+                            <sales-button
+                                classeIcone="fa fa-trash"
+                                classeHabilitado="btn btn-outline-danger"
+                                (enventoClick)="removerProduto(produto)"
+                            >
+                            </sales-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </app-layout>

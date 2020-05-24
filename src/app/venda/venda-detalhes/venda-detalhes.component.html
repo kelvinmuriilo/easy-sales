@@ -3,14 +3,14 @@
         <div class="col-8">
             <h2 class="display-4">Detalhes da Venda</h2>
         </div>
-        <div class="col-7 mt-5 animate__animated animate__fadeInDown">
+        <div class="col-12 col-lg-7 mt-3 animate__animated animate__fadeInDown">
             <div class="row flex-column">
                 <span>Código: {{ venda.codigo }}</span>
                 <span class="mt-1">Data: {{ venda.data | date: 'dd/MM/yyyy' }}</span>
                 <span class="mt-1">Cliente: {{ venda.cliente.nome }}</span>
                 <span class="mt-1">Produtos:</span>
-                <div class="col-9">
-                    <table class="table table-borderless mt-2">
+                <div class="col-12 col-lg-9">
+                    <table class="table table-striped table-responsive-sm mt-2">
                         <thead>
                             <th>Código</th>
                             <th>Nome</th>
@@ -35,7 +35,7 @@
                     Valor total: {{ calcularValorTotalVenda() | currency:'BRL' }}
                 </span>
 
-                <div class="col-9 d-flex  px-0 mt-5">
+                <div class="col-9 d-flex  px-0 mt-3 mt-5 mb-2">
                     <sales-button
                         nome="Voltar"
                         classeHabilitado="btn btn-outline-primary"

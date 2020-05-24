@@ -6,10 +6,13 @@ import { Produto } from './servico/produto';
 
 //Servicos
 import { ProdutoServicoService } from './servico/produto-servico.service';
+import { ModalServicoService } from '../shared/modal/modal-servico.service';
 
 //Terceiros
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ModalServicoService } from '../shared/modal/modal-servico.service';
+
+//Constante
+import { MENSAGEMERROCONEXAO } from '../shared/constantes';
 
 @Component({
   selector: 'app-produto',
@@ -21,10 +24,10 @@ export class ProdutoComponent implements OnInit {
   listaProdutos: Produto[] = [];
 
   constructor(
-    private produtoServicoService: ProdutoServicoService,
-    private ngxSpinnerService: NgxSpinnerService,
     private router: Router,
-    private modalServicoService: ModalServicoService
+    private ngxSpinnerService: NgxSpinnerService,
+    private modalServicoService: ModalServicoService,
+    private produtoServicoService: ProdutoServicoService
   ) { }
 
   ngOnInit(): void {
@@ -36,6 +39,10 @@ export class ProdutoComponent implements OnInit {
       data => {
         this.listaProdutos = data;
         this.ngxSpinnerService.hide();
+      },
+      error => {
+        this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirErro(MENSAGEMERROCONEXAO);
       }
     );
   }
@@ -52,8 +59,12 @@ export class ProdutoComponent implements OnInit {
     this.ngxSpinnerService.show();
     this.produtoServicoService.remover(produto).subscribe(
       data => {
-        this.modalServicoService.exibirSucesso(data['mensagem']);
         this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirSucesso(data['mensagem']);
+      },
+      error => {
+        this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirErro(MENSAGEMERROCONEXAO);
       }
     );
   }

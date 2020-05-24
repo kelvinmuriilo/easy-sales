@@ -3,10 +3,11 @@
         <div class="col-8">
             <h2 class="display-4">Produto</h2>
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-            <div class="row justify-content-center align-items-center 
+        <div class="col-12 col-lg-8">
+            <div class="row align-items-center 
                 animate__animated animate__fadeIn">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="col-12 col-lg-4  d-flex justify-content-center 
+                justify-content-lg-start">
                     <sales-button
                         nome="Adicionar"
                         classeIcone="fa fa-plus"
@@ -16,8 +17,8 @@
                     </sales-button>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4
-                             d-flex align-items-center">
+                <div class="col-12 col-lg-8 d-flex 
+                    justify-content-center align-items-center py-0">
                     <sales-input
                         placeholder="Insira o nome do produto"
                         [valorInicial]="produto.nome"
@@ -35,9 +36,10 @@
             </div>    
         </div>
       
-        <div class="col-8 mt-5">
+        <div class="col-12 col-lg-8 mt-5">
            <ng-container *ngIf="mostrarTabelaProduto()">
-                <table class="table table-striped animate__animated animate__fadeIn">
+                <table class="table table-striped animate__animated animate__fadeIn
+                    table-responsive ">
                     <thead>
                         <tr>
                             <th>Código</th>
@@ -56,7 +58,7 @@
                             <td>{{ produto.descricao }}</td>
                             <td>{{ produto.valor | currency:'BRL' }}</td>
                             <td>{{ produto.observacao }}</td>
-                            <td class="px-0"> 
+                            <td class="pL-0"> 
                                 <sales-button
                                     classeIcone="fa fa-edit"
                                     classeHabilitado="btn btn-outline-secondary"

@@ -1,13 +1,13 @@
 <app-layout>
-    <div class="row mt-5 justify-content-center">
-        <div class="col-8">
+    <div class="row mt-3 justify-content-center">
+        <div class="col-12 col-lg-8">
             <h2 class="display-4">{{ operacao }} Produto</h2>
         </div>
-        <div class="col-6 mt-5">
+        <div class="col-12 col-lg-6 mt-5">
             <div class="card animate__animated animate__fadeInDown">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-12">
                             <sales-input
                                 nome="Nome:"
                                 placeholder="Insira o nome do produto"
@@ -17,7 +17,7 @@
                             </sales-input>
                         </div>
 
-                        <div class="col-8 mt-3">
+                        <div class=" col-12 col-lg-8 mt-3">
                             <sales-input
                                 nome="Descrição:"
                                 placeholder="Descrição"
@@ -29,7 +29,7 @@
                     </div>
                 
                     <div class="row">
-                        <div class="col-6 mt-3">
+                        <div class=" col-12 col-lg-6 mt-3">
                             <sales-input
                                 nome="Observação:"
                                 placeholder="Observação"
@@ -41,9 +41,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-4 mt-3">
+                        <div class=" col-12 col-md-4 mt-3">
                             <sales-input
                                 nome="Valor:"
+                                tipo="number"
                                 placeholder="Valor"
                                 [valorInicial]="produto.valor"
                                 (valorRetorno)="produto.valor=$event"

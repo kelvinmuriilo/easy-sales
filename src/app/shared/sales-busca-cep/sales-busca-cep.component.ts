@@ -7,6 +7,7 @@ import { BuscaCepServicoService } from './servico/busca-cep-servico.service';
 
 //Terceiro
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ModalServicoService } from '../modal/modal-servico.service';
 
 @Component({
   selector: 'sales-busca-cep',
@@ -48,7 +49,8 @@ export class SalesBuscaCepComponent implements OnInit {
 
   constructor(
     private buscaCepServico: BuscaCepServicoService,
-    private ngxSpnnerService: NgxSpinnerService
+    private ngxSpnnerService: NgxSpinnerService,
+    private modalServicoService: ModalServicoService
   ) { }
 
   ngOnInit(): void {
@@ -64,6 +66,12 @@ export class SalesBuscaCepComponent implements OnInit {
           this.retornarCidade();
           this.retornarLogradouro();
           this.retornarUf();
+          this.ngxSpnnerService.hide();
+        },
+        error =>{
+          this.modalServicoService.exibirErro(
+            'O CEP informado não foi encontrado! Por favor, informe um CEP válido.'
+          );
           this.ngxSpnnerService.hide();
         }
       );

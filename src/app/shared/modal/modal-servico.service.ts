@@ -41,6 +41,9 @@ export class ModalServicoService {
     this.exibirMensagem(TituloModal.SUCESSO, mensagem, ClasseComplementarModal.SUCESSO);
   }
 
+  exibirErro(mensage: string): void{
+    this.exibirMensagem(TituloModal.ERRO, mensage, ClasseComplementarModal.ERRO);
+  }
 
   private exibirMensagem(titulo: string, mensagem: string, classeComplementar: string): void {
     const initialState = { titulo: titulo, mensagem: mensagem, classeComplementar: classeComplementar };

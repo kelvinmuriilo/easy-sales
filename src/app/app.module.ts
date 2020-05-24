@@ -27,7 +27,6 @@ import { ModalConfirmacaoComponent } from './shared/modal/modal-confirmacao/moda
 import { ProdutoManterComponent } from './produto/produto-manter/produto-manter.component';
 import { VendaManterComponent } from './venda/venda-manter/venda-manter.component';
 import { VendaDetalhesComponent } from './venda/venda-detalhes/venda-detalhes.component';
-import { SalesInputBuscaTempoRealComponent } from './shared/sales-input-busca-tempo-real/sales-input-busca-tempo-real.component';
 import { SalesSelectComponent } from './shared/sales-select/sales-select.component';
 
 @NgModule({
@@ -46,7 +45,6 @@ import { SalesSelectComponent } from './shared/sales-select/sales-select.compone
     ProdutoManterComponent,
     VendaManterComponent,
     VendaDetalhesComponent,
-    SalesInputBuscaTempoRealComponent,
     SalesSelectComponent
   ],
   entryComponents: [

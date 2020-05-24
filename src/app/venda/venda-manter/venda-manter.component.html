@@ -90,8 +90,12 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-right" colspan="2">Valor total</td>
-                                                    <td>{{ calcularValorTotalVenda() | currency: 'BRL' }}</td>
+                                                    <td>
+                                                        <strong>Valor total</strong>
+                                                    </td>
+                                                    <td> 
+                                                        <strong>{{ calcularValorTotalVenda() | currency: 'BRL' }}</strong>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>

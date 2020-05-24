@@ -1,7 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { BsModalService, BsModalRef, ModalOptions } from 'ngx-bootstrap/modal';
 import { ModalMensagemComponent } from './modal-mensagem/modal-mensagem.component';
-import { ModalConfirmacaoComponent } from './modal-confirmacao/modal-confirmacao.component';
 
 enum TituloModal {
   ERRO = 'Erro',

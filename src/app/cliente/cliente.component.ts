@@ -10,7 +10,9 @@ import { ClienteServicoService } from './servico/cliente-servico.service';
 //Terceiros
 import { NgxSpinnerService } from "ngx-spinner";
 import { ModalServicoService } from '../shared/modal/modal-servico.service';
-import { catchError } from 'rxjs/operators';
+
+//Constante
+import { MENSAGEMERROCONEXAO } from '../shared/constantes';
 
 @Component({
   selector: 'app-cliente',
@@ -20,7 +22,7 @@ import { catchError } from 'rxjs/operators';
 export class ClienteComponent implements OnInit {
   cliente: Cliente = new Cliente();
   listaClientes: Cliente[] = [];
-
+ 
   constructor(
     private clienteServicoService: ClienteServicoService,
     private ngxSpinnerService: NgxSpinnerService,
@@ -42,6 +44,12 @@ export class ClienteComponent implements OnInit {
       data => {
         this.listaClientes = data;
         this.ngxSpinnerService.hide();
+      },
+      error => {
+        this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirErro(
+          MENSAGEMERROCONEXAO
+        );
       }
     );
   }
@@ -60,6 +68,12 @@ export class ClienteComponent implements OnInit {
       data => {
         this.modalServicoService.exibirSucesso(data['mensagem']);
         this.ngxSpinnerService.hide();
+      },
+      error => {
+        this.ngxSpinnerService.hide();
+        this.modalServicoService.exibirErro(
+          MENSAGEMERROCONEXAO
+        );
       }
     );
   }

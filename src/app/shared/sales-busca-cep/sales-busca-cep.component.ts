@@ -9,6 +9,9 @@ import { BuscaCepServicoService } from './servico/busca-cep-servico.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ModalServicoService } from '../modal/modal-servico.service';
 
+//Constante
+import { MENSAGEMERROCEP } from '../constantes';
+
 @Component({
   selector: 'sales-busca-cep',
   templateUrl: './sales-busca-cep.component.html',
@@ -67,10 +70,11 @@ export class SalesBuscaCepComponent implements OnInit {
           this.retornarLogradouro();
           this.retornarUf();
           this.ngxSpnnerService.hide();
+          this.verificaErroCep(data);
         },
         error =>{
           this.modalServicoService.exibirErro(
-            'O CEP informado não foi encontrado! Por favor, informe um CEP válido.'
+            MENSAGEMERROCEP
           );
           this.ngxSpnnerService.hide();
         }
@@ -97,6 +101,14 @@ export class SalesBuscaCepComponent implements OnInit {
 
   retornarUf(){
     this.valorRetornoUf.emit(this.cep.uf);
+  }
+
+  private verificaErroCep(data){
+    if(data['erro']){
+      this.modalServicoService.exibirErro(
+        MENSAGEMERROCEP
+      );
+    }
   }
 
 }
